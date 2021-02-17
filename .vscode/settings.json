@@ -20,5 +20,6 @@
         "custom"
     ],
     // CMake settings:
-    "cmake.configureOnEdit": false
+    "cmake.configureOnEdit": true,
+    "cmake.configureOnOpen": true
 }

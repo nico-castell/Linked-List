@@ -5,6 +5,7 @@ project(linked-list VERSION 0.0.1)
 # enable_testing()
 
 add_subdirectory(lklist)
+add_subdirectory(lkqueue)
 add_subdirectory(src)
 
 # set(CPACK_PROJECT_NAME "${PROJECT_NAME}")

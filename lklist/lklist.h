@@ -29,7 +29,7 @@ private:
 
 public:
     /// @brief Give back all the memory when deleting the list.
-    ~LinkedList() { Clear() }
+    ~LinkedList() { Clear(); }
 
     /// @brief Delete all the elements of the list.
     void Clear();
@@ -298,10 +298,10 @@ void LinkedList<T>::Clear(const int& from, const int& to)
         return;
     }
 
-    node* c = find_node(ch);  // Find the node closer to head
-    node* k = c;              // Keeper
-    bool reverse = false;     // Default to forward direction
-    if (to < from)            // Or go backwards
+    node* c = find_node(from);  // Find the first node
+    node* k = c;                // Keeper
+    bool reverse = false;       // Default to forward direction
+    if (to < from)              // Or go backwards
         reverse = true;
 
     if (reverse)
