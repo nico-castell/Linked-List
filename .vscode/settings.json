@@ -9,7 +9,7 @@
     "C_Cpp.clang_format_style": "file",
     // Doxygen settings:
     "doxdocgen.c.triggerSequence": "///",
-    "doxdocgen.c.commentPrefix": "///",
+    "doxdocgen.c.commentPrefix": "/// ",
     "doxdocgen.c.firstLine": "",
     "doxdocgen.c.lastLine": "",
     "doxdocgen.generic.order": [

@@ -29,7 +29,14 @@ private:
 
 public:
     /// @brief Give back all the memory when deleting the list.
-    ~LinkedList();
+    ~LinkedList() { Clear() }
+
+    /// @brief Delete all the elements of the list.
+    void Clear();
+    /// @brief Delete a range of elements from the list
+    /// @param from The index at which to start (inclusive)
+    /// @param to The index at which to stop (inclusive)
+    void Clear(const int& from, const int& to);
 
     /// @brief Add data to the tail.
     /// @param data The data you want to add
@@ -70,9 +77,10 @@ public:
 };
 
 template <class T>
-LinkedList<T>::~LinkedList()
+void LinkedList<T>::Clear()
 {
     node* c = h;
+    h = t = n = NULL;  // Point all control pointers to NULL
     while (size > 0)
     {
         node* _c = c->next;  // Keep a pointer to the next node
@@ -279,4 +287,63 @@ void LinkedList<T>::DumpToVector(std::vector<T>& destination, const int& from, c
             if (c == NULL)  // This node is the tail
                 c = h;
         }
+}
+
+template <class T>
+void LinkedList<T>::Clear(const int& from, const int& to)
+{
+    if (from == to)  // If only deleting one node
+    {
+        Delete(from);  // Call the correct method.
+        return;
+    }
+
+    node* c = find_node(ch);  // Find the node closer to head
+    node* k = c;              // Keeper
+    bool reverse = false;     // Default to forward direction
+    if (to < from)            // Or go backwards
+        reverse = true;
+
+    if (reverse)
+        for (int i = to; i <= from; i++)
+        {
+            node* _c = c->prev;  // Keep a pointer to the node before
+            delete c;            // Delete this node
+            c = _c;              // Point to the node before
+            size--;              // Update size
+            if (c == NULL)       // This node is the Head
+                c = t;
+            if (size == 0)  // Can't continue deleting
+            {
+                h = t = n = NULL;
+                return;
+            }
+        }
+    else
+        for (int i = from; i <= to; i++)
+        {
+            node* _c = c->next;  // Keep a pointer to the following node
+            delete c;            // Delete this node
+            c = _c;              // Point to the following node
+            size--;              // Update size
+            if (c == NULL)       // This node is the Tail
+                c = t;
+            if (size == 0)  // Can't continue deleting
+            {
+                h = t = n = NULL;
+                return;
+            }
+        }
+
+    // Fix the list according to how it was deleted
+    if (reverse)
+    {
+        k->prev = c;
+        c->next = k;
+    }
+    else
+    {
+        k->next = c;
+        c->prev = k;
+    }
 }
