@@ -6,6 +6,10 @@ All significant changes to **Linked Lists** will be documented here
 1. [Pre Releases](#Pre-Releases)
 
 ## Unreleased
+### Changed
+- Exported Linked List tests to their own *header-implementation* files.
+- Now the project uses CMake, meaning it's no longer compatible with the old repository.
+
 ### Fixed
 - Edge cases: Adding the first node of the list no longer causes issues. Not even with the **Add()** method.
 - Edge cases: Empting the list.
