@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "jeff-hykin.better-cpp-syntax", // Better C++ Syntax
+        "ms-vscode.cpptools", // C++ extension
+        "austin.code-gnu-global", // C++ Intellisense
+        "ms-vscode.cmake-tools", // CMake
+        "cschlosser.doxdocgen", // Doxygen documentation
+        "visualstudioexptteam.vscodeintellicode", // Visual Studio IntelliCode
+        "redhat.vscode-yaml" // YAML for .clang-format
+    ]
+}

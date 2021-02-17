@@ -1,0 +1,24 @@
+{
+    // C++ settings:
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.rulers": [
+            120
+        ]
+    },
+    "C_Cpp.clang_format_style": "file",
+    // Doxygen settings:
+    "doxdocgen.c.triggerSequence": "///",
+    "doxdocgen.c.commentPrefix": "///",
+    "doxdocgen.c.firstLine": "",
+    "doxdocgen.c.lastLine": "",
+    "doxdocgen.generic.order": [
+        "brief",
+        "tparam",
+        "param",
+        "return",
+        "custom"
+    ],
+    // CMake settings:
+    "cmake.configureOnEdit": false
+}
