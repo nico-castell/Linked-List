@@ -28,5 +28,5 @@ void TestQueue()
     std::cout << "Size: " << my_queue.Size() << '\n';
 
     std::cout << "Index 1:  " << my_queue[1] << '\n';
-    std::cout << "Index -1: " << my_queue[-2] << '\n';
+    std::cout << "Index -2: " << my_queue[-2] << '\n';
 }

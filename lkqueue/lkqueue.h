@@ -16,7 +16,7 @@ private:
     node* h = NULL;  // Head
     int size = 0;    // Size of the queue
 
-    /// @brief Generate a new node, if it's the fist node, also point 'n', 't' and 'h' to it.
+    /// @brief Generate a new node, if it's the fist node, also point 't' and 'h' to it.
     /// @return node* A pointer to the new node.
     node* gen_node();
     /// @brief Delete the only node of the list and set control pointers to NULL.
@@ -135,7 +135,7 @@ T Queue<T>::operator[](const int& index)
 
     try
     {
-        if (index > (size - 1) && index != 0)  // Tried to access an index out of range
+        if (index > (size - 1) && !(index < -size) && index != 0)  // Tried to access an index out of range
             throw std::out_of_range("Tried to peek an index out of range");
         if (reverse)
             for (int i = -1; i > index; i--)  // When reversing start from the Tail and go the the prev node until we've

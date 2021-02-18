@@ -17,7 +17,7 @@ private:
     node* h = NULL;  // Head
     int size = 0;    // Size of the list
 
-    /// @brief Generate a new node, if it's the first node, also point 'n', 't' and 'h' to it.
+    /// @brief Generate a new node, if it's the first node, also point 't' and 'h' to it.
     /// @return node* A node pointer to the new node
     node* gen_node();
     /// @brief Find a node as indicated by the index.
@@ -114,7 +114,7 @@ typename LinkedList<T>::node* LinkedList<T>::find_node(const int& index)
 
     try
     {
-        if (index > (size - 1) && index != 0)  // Tried to access an index out of range
+        if (index > (size - 1) && !(index < -size) && index != 0)  // Tried to access an index out of range
             throw std::out_of_range("Tried to access an index out of range");
         if (reverse)
             for (int i = -1; i > index; i--)  // When reversing start from the tail and go to the prev node until we've

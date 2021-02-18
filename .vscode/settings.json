@@ -21,5 +21,7 @@
     ],
     // CMake settings:
     "cmake.configureOnEdit": true,
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    // Terminal settings:
+    "terminal.integrated.cwd": "${workspaceFolder}/build"
 }
