@@ -1,12 +1,11 @@
 #include "lklist-tests/lklist-tests.h"
 #include "lkqueue-tests/lkqueue-tests.h"
-#include <iostream>
-#include <lklist.h>
-#include <lkqueue.h>
+#include "lkstack-tests/lkstack-tests.h"
 
 int main()
 {
     TestLinkedList();
     TestQueue();
+    TestStack();
     return 0;
 }
