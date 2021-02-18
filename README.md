@@ -1,8 +1,8 @@
 # A linked list
 <!-- #region Shields -->
-[![Lines of code](https://img.shields.io/tokei/lines/github/nico-castell/Linked-List?color=yellow&label=Lines%20of%20code)](https://github.com/nico-castell/Linked-List)
-[![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/nico-castell/Linked-List/latest?color=yellow&label=Commits%20since%20last%20release)](https://github.com/nico-castell/Linked-List/commits)
-[![GitHub](https://img.shields.io/github/license/nico-castell/Linked-List?color=yellow&label=License)](LICENSE)
+[![Lines of code](https://img.shields.io/tokei/lines/github/nico-castell/Linked-List-CMake?color=yellow&label=Lines%20of%20code)](https://github.com/nico-castell/Linked-List-CMake)
+[![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/nico-castell/Linked-List-CMake/latest?color=yellow&label=Commits%20since%20last%20release)](https://github.com/nico-castell/Linked-List-CMake/commits)
+[![GitHub](https://img.shields.io/github/license/nico-castell/Linked-List-CMake?color=yellow&label=License)](LICENSE)
 <!-- #endregion -->
 
 Linked lists have a reputation for being slow, but I believe that their structure is really cool. So I created my own.
@@ -51,6 +51,7 @@ These methods must each find the node at an index, which is a slow operation.
 - **Size**(): Get the size of the array. There's no way to set it manually. *Big O(1)*.
 - **DumpToVector**(vector&): This method will push back all of the data into the vector. But before pushing, it will reserve enough space in the vector to be able to dump everything *without* trigerring resizing. *Big O(n)*.
 - **DumpToVector**(vector&, from, to): This method will push back a specific range of data from the head to the tail of the list into a vector. *Big O(n)*.
+- **Clear**(): This method clears all the data from the list. *Big O(n)*.
 
 ## The Queue and the Stack
 
@@ -66,6 +67,7 @@ This queue implements the methods:
 - **Peek**(): Get the data at the front without deleting it. *Big O(1)*.
 - **operator []**: Peek data behind the front. *Big O(n)*.
 - **Size**(): Get the number of elements in the queue. *Big O(1)*.
+- **Clear**(): Clear the entire queue. *Big O(n)*.
 
 ### Stack
 
@@ -77,6 +79,7 @@ This stack implements the methods:
 - **Peek**(): Get the data at the top without deleting it. *Big O(1)*.
 - **operator []**: Peek data behind the top. *Big O(n)*.
 - **Size**(): Get the number of elements in the stack. *Big O(1)*.
+- **Clear**(): Clear the entire stack. *Big O(n)*.
 
 ## License
 

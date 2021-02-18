@@ -2,17 +2,21 @@
 
 All significant changes to **Linked Lists** will be documented here
 
-1. [Unreleased](#Unreleased)
+1. [Released](#Released)
 1. [Pre Releases](#Pre-Releases)
 
-## Unreleased
-### Changed
+## Released
+
+### Version [1.0.0](https://github.com/nico-castell/Linked-List-CMake/releases/tag/1.0.0) - *2021-02-17*
+#### Changed
 - Exported Linked List tests to their own *header-implementation* files.
 - Now the project uses CMake, meaning it's no longer compatible with the old repository.
 
-### Fixed
+#### Fixed
 - Edge cases: Adding the first node of the list no longer causes issues. Not even with the **Add()** method.
 - Edge cases: Empting the list.
+
+## Pre-Releases
 
 ### Version 0.0.2 - *2021-02-15*
 #### Added
@@ -25,9 +29,7 @@ All significant changes to **Linked Lists** will be documented here
 #### Fixed
 - Now the **Add()** and **Delete()** methods have 2 edge-cases when the index is either the Tail or the Head.
 
-## Pre-Releases
-
-### Version [0.0.1](https://github.com/nico-castell/Linked-List/releases/tag/0.0.1) - *2021-02-13*
+### Version 0.0.1 - *2021-02-13*
 #### Added
 - Sample of a **Linked List**.
 - Sample of a **Queue**.
