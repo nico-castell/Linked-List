@@ -6,12 +6,6 @@ project(linked-list VERSION 1.0.1)
 include(GoogleTest)
 enable_testing()
 
-# Add all the project subdirectories
-add_subdirectory(lklist)
-add_subdirectory(lkqueue)
-add_subdirectory(lkstack)
-#add_subdirectory(src)
-
 # Configure google tests and tests folder
 # This cofig was found in: https://crascit.com/2015/07/25/cmake-gtest/
 # Download and unpack googletest at configure time
@@ -34,6 +28,11 @@ add_subdirectory(
     "${CMAKE_BINARY_DIR}/googletest-build"
 )
 
+# Add all the project subdirectories
+add_subdirectory(lklist)
+add_subdirectory(lkqueue)
+add_subdirectory(lkstack)
+#add_subdirectory(src)
 add_subdirectory(tests)
 
 # set(CPACK_PROJECT_NAME "${PROJECT_NAME}")
