@@ -6,6 +6,7 @@
         "ms-vscode.cmake-tools", // CMake
         "cschlosser.doxdocgen", // Doxygen documentation
         "visualstudioexptteam.vscodeintellicode", // Visual Studio IntelliCode
-        "redhat.vscode-yaml" // YAML for .clang-format
+        "redhat.vscode-yaml", // YAML for .clang-format
+        "matepek.vscode-catch2-test-adapter" // Google Test explorer
     ]
 }
