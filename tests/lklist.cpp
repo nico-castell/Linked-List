@@ -48,29 +48,56 @@ TEST_F(LinkedListTest, EdgeCasesOnHead)
     EXPECT_EQ(0, lkList.Size());
 }
 
-TEST_F(LinkedListTest, EdgeCasesOnHeadShouldFail)
+TEST_F(LinkedListTest, EdgeCasesOnTail)
 {
-    try
-    {
-        lkList.PopBack();
-    }
-    catch (const std::exception& e)
-    {
-        ASSERT_STREQ("Tried to access an index out of range", e.what());
-    }
+    lkList.Append(5);
+    EXPECT_EQ(5, lkList[0]);
+    lkList.PopBack();
+    EXPECT_EQ(0, lkList.Size());
+
+    lkList.Add(-1, 5);
+    EXPECT_EQ(5, lkList[0]);
+    lkList.Delete(-1);
+    EXPECT_EQ(0, lkList.Size());
+}
+
+TEST_F(LinkedListTest, DeletingEmptyShouldDoNothing)
+{
+    lkList.PopBack();
+    EXPECT_EQ(0, lkList.Size());
+    lkList.Delete(0);
+    EXPECT_EQ(0, lkList.Size());
+    lkList.Delete(-1);
+    EXPECT_EQ(0, lkList.Size());
+    lkList.PopHead();
+    EXPECT_EQ(0, lkList.Size());
+}
+
+TEST_F(LinkedListTest, AccessingOutOfRangeShouldFail)
+{
+    std::vector<int> shouldEndUpEmpty;
+    EXPECT_THROW(lkList[0], std::out_of_range);
+    EXPECT_THROW(lkList.DumpToVector(shouldEndUpEmpty, 0, 0), std::out_of_range);
 }
 #pragma endregion
 
 #pragma region Dumping to vector
-// Whole Vector
-TEST(LinkedListDumpTest, DumpToVector1)
+class LinkedListDumpTest : public testing::Test
 {
+protected:
     LinkedList<int> lkList;
-    for (int i = 5; i < 41; i += 5)
-        lkList.Append(i);
+    std::vector<int> rNumbers;
 
-    std::vector<int> rNumbers(8);
-    rNumbers.clear();
+    LinkedListDumpTest()
+    {
+        for (int i = 5; i < 41; i += 5)
+            lkList.Append(i);
+    }
+};
+
+// Whole Vector
+TEST_F(LinkedListDumpTest, DumpToVector1)
+{
     lkList.DumpToVector(rNumbers);
 
     for (int i = 0; i < 8; i++)
@@ -78,17 +105,11 @@ TEST(LinkedListDumpTest, DumpToVector1)
 }
 
 // Positive - Forward
-TEST(LinkedListDumpTest, DumpToVector2)
+TEST_F(LinkedListDumpTest, DumpToVector2)
 {
-    LinkedList<int> lkList;
-    for (int i = 5; i < 41; i += 5)
-        lkList.Append(i);
-
     int from = 2;
     int to = 5;
-    int total = 4;
-    std::vector<int> rNumbers(total);
-    rNumbers.clear();
+    int total = abs(to - from) + 1;
 
     lkList.DumpToVector(rNumbers, from, to);
 
@@ -99,17 +120,11 @@ TEST(LinkedListDumpTest, DumpToVector2)
 }
 
 // Positive - Reverse
-TEST(LinkedListDumpTest, DumpToVector3)
+TEST_F(LinkedListDumpTest, DumpToVector3)
 {
-    LinkedList<int> lkList;
-    for (int i = 5; i < 41; i += 5)
-        lkList.Append(i);
-
     int from = 6;
     int to = 2;
-    int total = 5;
-    std::vector<int> rNumbers(total);
-    rNumbers.clear();
+    int total = abs(to - from) + 1;
 
     lkList.DumpToVector(rNumbers, from, to);
 
@@ -120,17 +135,11 @@ TEST(LinkedListDumpTest, DumpToVector3)
 }
 
 // Negative - Forward
-TEST(LinkedListDumpTest, DumpToVector4)
+TEST_F(LinkedListDumpTest, DumpToVector4)
 {
-    LinkedList<int> lkList;
-    for (int i = 5; i < 41; i += 5)
-        lkList.Append(i);
-
     int from = -5;
     int to = -2;
-    int total = 4;
-    std::vector<int> rNumbers(total);
-    rNumbers.clear();
+    int total = abs(to - from) + 1;
 
     lkList.DumpToVector(rNumbers, from, to);
 
@@ -141,17 +150,11 @@ TEST(LinkedListDumpTest, DumpToVector4)
 }
 
 // Negative - Reverse
-TEST(LinkedListDumpTest, DumpToVector5)
+TEST_F(LinkedListDumpTest, DumpToVector5)
 {
-    LinkedList<int> lkList;
-    for (int i = 5; i < 41; i += 5)
-        lkList.Append(i);
-
     int from = -2;
     int to = -5;
-    int total = 4;
-    std::vector<int> rNumbers(total);
-    rNumbers.clear();
+    int total = abs(to - from) + 1;
 
     lkList.DumpToVector(rNumbers, from, to);
 
@@ -162,17 +165,11 @@ TEST(LinkedListDumpTest, DumpToVector5)
 }
 
 // Full list, negative - reverse
-TEST(LinkedListDumpTest, FullDumpToVector1)
+TEST_F(LinkedListDumpTest, FullDumpToVector1)
 {
-    LinkedList<int> lkList;
-    for (int i = 5; i < 41; i += 5)
-        lkList.Append(i);
-
     int from = -1;
     int to = -9;
-    int total = 9;
-    std::vector<int> rNumbers(total);
-    rNumbers.clear();
+    int total = abs(to - from) + 1;
 
     lkList.DumpToVector(rNumbers, from, to);
 
@@ -182,40 +179,27 @@ TEST(LinkedListDumpTest, FullDumpToVector1)
         EXPECT_EQ(rNumbers[i], lkList[(from - i) % (total - 1)]);
 }
 
-// FIXME: Out of range exceptions
 // Full list, negative - forward
-TEST(LinkedListDumpTest, FullDumpToVector2)
+TEST_F(LinkedListDumpTest, FullDumpToVector2)
 {
-    LinkedList<int> lkList;
-    for (int i = 5; i < 41; i += 5)
-        lkList.Append(i);
-
-    int from = -9;
+    int from = -8;
     int to = -1;
-    int total = 9;
-    std::vector<int> rNumbers(total);
-    rNumbers.clear();
+    int total = abs(to - from) + 1;
 
     lkList.DumpToVector(rNumbers, from, to);
 
     ASSERT_EQ(total, rNumbers.size());
 
     for (int i = 0; i < total; i++)
-        EXPECT_EQ(rNumbers[i], lkList[(from - i) % (total - 1)]);
+        EXPECT_EQ(rNumbers[i], lkList[from + i]);
 }
 
 // Wrap list, negative/positive - forward
-TEST(LinkedListDumpTest, WrappedDumpToVector)
+TEST_F(LinkedListDumpTest, WrappedDumpToVector1)
 {
-    LinkedList<int> lkList;
-    for (int i = 5; i < 41; i += 5)
-        lkList.Append(i);
-
-    int from = -9;
+    int from = -8;
     int to = 1;
-    int total = 10;
-    std::vector<int> rNumbers(total);
-    rNumbers.clear();
+    int total = abs(to - from) + 1;
 
     lkList.DumpToVector(rNumbers, from, to);
 
@@ -226,6 +210,19 @@ TEST(LinkedListDumpTest, WrappedDumpToVector)
 }
 
 // Wrap list, positive/negative - reverse
+TEST_F(LinkedListDumpTest, WrappedDumpToVector2)
+{
+    int from = 1;
+    int to = -8;
+    int total = abs(to - from) + 1;
+
+    lkList.DumpToVector(rNumbers, from, to);
+
+    ASSERT_EQ(total, rNumbers.size());
+
+    for (int i = 0; i < total; i++)
+        EXPECT_EQ(rNumbers[i], lkList[(from - i) % (total - 1)]);
+}
 
 #pragma endregion
 

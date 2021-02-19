@@ -108,7 +108,8 @@ typename LinkedList<T>::node* LinkedList<T>::find_node(const int& index)
         reverse = true;  // Reverse
     }
 
-    if (index > (size - 1) && !(index < -size) && index != 0)  // Tried to access an index out of range
+    // if ((index > (size - 1) || index < -size) && (index != 0 || h == NULL))  // Tried to access an index out of range
+    if ((index + 1) > size || index < -size)  // Tried to access an index out of range
         throw std::out_of_range("Tried to access an index out of range");
 
     if (reverse)
@@ -187,8 +188,10 @@ void LinkedList<T>::PopHead()
 template <class T>
 void LinkedList<T>::Add(const int& index, const T& data)
 {
-    node* tn = find_node(index);  // Find this node
-    if (tn == h)                  // This node is the head
+    node* tn = NULL;
+    if (size != 0)              // If it's not the first node
+        tn = find_node(index);  //   Find this node
+    if (tn == h)                // This node is the head
     {
         AddHead(data);  // Call correct method
         return;         // Exit this method
