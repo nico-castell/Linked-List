@@ -6,9 +6,8 @@ function(add_custom_test test_name linked_lib source_file)
         gtest
         gtest_main
     )
-    add_test(
-        NAME "${test_name}"
-        COMMAND "${test_name}"
+    gtest_discover_tests(
+        "${test_name}"
     )
 endfunction()
 

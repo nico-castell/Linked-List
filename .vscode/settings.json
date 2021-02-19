@@ -23,9 +23,5 @@
     "cmake.configureOnEdit": true,
     "cmake.configureOnOpen": true,
     // Terminal settings:
-    "terminal.integrated.cwd": "${workspaceFolder}/build",
-    "files.exclude": {
-        "**/.git": true,
-        "googletest": true
-    }
+    "terminal.integrated.cwd": "${workspaceFolder}/build"
 }
