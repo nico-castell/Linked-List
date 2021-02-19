@@ -9,7 +9,7 @@ include_directories(${GTEST_INCLUDE_DIR})
 add_subdirectory(lklist)
 add_subdirectory(lkqueue)
 add_subdirectory(lkstack)
-add_subdirectory(src)
+# add_subdirectory(src)
 
 add_subdirectory(googletest)
 add_subdirectory(tests)

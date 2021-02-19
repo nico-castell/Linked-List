@@ -12,27 +12,13 @@ protected:
     }
 };
 
-TEST_F(LinkedStackTests, EmptyingStack)
-{
-    try
-    {
-        for (int i = 5; i < 41; i += 5)
-            lkStack.Pop();
-        EXPECT_EQ(0, lkStack.Size());
-    }
-    catch (const std::exception& e)
-    {
-        FAIL() << e.what();
-    }
-}
-
 TEST_F(LinkedStackTests, Popping)
 {
     try
     {
         for (int i = 1; i <= 8; i++)
         {
-            lkStack.Pop();
+            EXPECT_EQ(45 - (i * 5), lkStack.Pop());
             EXPECT_EQ(8 - i, lkStack.Size());
         }
         ASSERT_EQ(0, lkStack.Size());
@@ -49,7 +35,7 @@ TEST_F(LinkedStackTests, Peeking)
     {
         for (int i = 0; i < 8; i++)
         {
-            lkStack.Peek();
+            EXPECT_EQ(40, lkStack.Peek());
             EXPECT_EQ(8, lkStack.Size());
         }
         ASSERT_EQ(8, lkStack.Size());
@@ -79,7 +65,7 @@ TEST_F(LinkedStackTests, PeekingOutOfRangeShouldFail)
     EXPECT_THROW(lkStack[-10], std::out_of_range);
 }
 
-TEST(EmptyLinkedStackTests, PoppingEmptyShouldFail)
+TEST(EmptyLinkedStackTests, AccessingEmptyShouldFail)
 {
     Stack<int> lkStack;
     EXPECT_THROW(lkStack.Pop(), std::out_of_range);
