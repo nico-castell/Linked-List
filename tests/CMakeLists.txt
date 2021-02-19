@@ -1,21 +1,31 @@
-cmake_minimum_required(VERSION 3.16.3)
+function(add_custom_test test_name linked_lib source_file)
+    add_executable("${test_name}" "${source_file}")
+    target_link_libraries(
+        "${test_name}" PUBLIC
+        "${linked_lib}"
+        gtest
+        gtest_main
+    )
+    add_test(
+        NAME "${test_name}"
+        COMMAND "${test_name}"
+    )
+endfunction()
 
-set(test_name "LinkedListTests")
-
-set(
-    Sources
+add_custom_test(
+    LinkedListTests
+    lklist
     lklist.cpp
 )
 
-add_executable("${test_name}" ${Sources})
-target_link_libraries(
-    "${test_name}" PUBLIC
-    lklist
-    gtest
-    gtest_main
+add_custom_test(
+    LinkedQueueTests
+    lkqueue
+    lkqueue.cpp
 )
 
-add_test(
-    NAME "${test_name}"
-    COMMAND "${test_name}"
+add_custom_test(
+    LinkedStackTests
+    lkstack
+    lkstack.cpp
 )
