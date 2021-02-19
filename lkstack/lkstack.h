@@ -98,28 +98,22 @@ void Stack<T>::Push(const T& data)
 template <class T>
 T Stack<T>::Pop()
 {
-    try
+    if (size == 0)
+        throw std::out_of_range("Tried to get data when the stack was empty");
+
+    T content = t->data;
+    if (size < 2)
     {
-        if (size == 0)
-            throw std::out_of_range("Tried to get data when the stack was empty");
-        T content = t->data;
-        if (size < 2)
-        {
-            delete_only_node();  // Call correct method
-            return content;      // Return the data
-        }
-        node* bn = t->prev;  // Keep a pointer to the node before
-        bn->next = NULL;     // Point the node before's next to NULL
-        delete t;            // Delete the Tail
-        t = bn;              // Point Tail to the node before
-        size--;              // Update size
-        return content;      // Update size
+        delete_only_node();  // Call correct method
+        return content;      // Return the data
     }
-    catch (const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-        exit(1);
-    }
+
+    node* bn = t->prev;  // Keep a pointer to the node before
+    bn->next = NULL;     // Point the node before's next to NULL
+    delete t;            // Delete the Tail
+    t = bn;              // Point Tail to the node before
+    size--;              // Update size
+    return content;      // Update size
 }
 
 template <class T>
@@ -133,21 +127,16 @@ T Stack<T>::operator[](const int& index)
         reverse = false;  // Go forward
     }
 
-    try
-    {
-        if (index > (size - 1) && !(index < -size) && index != 0)  // Tried to access an index out of range
-            throw std::out_of_range("Tried to peek an index out of range");
-        if (reverse)
-            for (int i = 0; i < index; i++)  // When reversing start from the Tail and go to the prev node until we've
-                c = c->prev;                 //   done all the operations
-        else
-            for (int i = -1; i > index; i--)  // When going forward start from the Head and go to the next node until
-                c = c->next;                  //   we've done all the operations
-        return c->data;
-    }
-    catch (const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-        exit(1);
-    }
+    // if (index > (size - 1) && !(index < -size) && index != 0)  // Tried to access an index out of range
+    if ((index + 1) > size || index < -size)  // Tried to access an index out of range
+        throw std::out_of_range("Tried to peek an index out of range");
+
+    if (reverse)
+        for (int i = 0; i < index; i++)  // When reversing start from the Tail and go to the prev node until we've
+            c = c->prev;                 //   done all the operations
+    else
+        for (int i = -1; i > index; i--)  // When going forward start from the Head and go to the next node until
+            c = c->next;                  //   we've done all the operations
+
+    return c->data;
 }
