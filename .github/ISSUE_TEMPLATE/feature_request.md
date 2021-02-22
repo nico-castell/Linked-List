@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: 'Feature request:'
+title: 'Feature request: '
 labels: Feature Request
 assignees: ''
 
@@ -15,3 +15,6 @@ A clear and concise description of what you want to happen.
 
 **Describe alternatives you've considered**
 A clear and concise description of any alternative solutions or features you've considered.
+
+**Describe how you might implement this**
+If you know or have an idea as to how this might be implemented share it here.
