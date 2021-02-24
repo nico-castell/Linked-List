@@ -2,15 +2,16 @@
 
 All significant changes to **Linked Lists** will be documented here
 
-1. [Unreleased](#unreleased)
 1. [Released](#Released)
 1. [Pre Releases](#Pre-Releases)
 
-## Unreleased
-### Changes
-- GoogleTest's [CMakeLists.txt.in](CMakeLists.txt.in) file now uses a newer version of CMake.
-
 ## Released
+
+### Version [1.0.2](https://github.com/nico-castell/Linked-List/releases/tag/1.0.2) - *2021-02-23*
+#### Added
+- vscode's C++ extension was configured to also run on windows with Visual Studio 2019's msbuild.
+#### Changes
+- GoogleTest's [CMakeLists.txt.in](CMakeLists.txt.in) file now uses a newer version of CMake.
 
 ### Version [1.0.1](https://github.com/nico-castell/Linked-List/releases/tag/1.0.1) - *2021-02-19*
 #### Added
