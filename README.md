@@ -1,8 +1,8 @@
 # A linked list
 <!-- #region Shields -->
-[![Lines of code](https://img.shields.io/tokei/lines/github/nico-castell/Linked-List-CMake?color=yellow&label=Lines%20of%20code)](https://github.com/nico-castell/Linked-List-CMake)
-[![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/nico-castell/Linked-List-CMake/latest?color=yellow&label=Commits%20since%20last%20release)](https://github.com/nico-castell/Linked-List-CMake/commits)
-[![GitHub](https://img.shields.io/github/license/nico-castell/Linked-List-CMake?color=yellow&label=License)](LICENSE)
+[![Lines of code](https://img.shields.io/tokei/lines/github/nico-castell/Linked-List?color=yellow&label=Lines%20of%20code)](https://github.com/nico-castell/Linked-List)
+[![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/nico-castell/Linked-List/latest?color=yellow&label=Commits%20since%20last%20release)](https://github.com/nico-castell/Linked-List/commits)
+[![GitHub](https://img.shields.io/github/license/nico-castell/Linked-List?color=yellow&label=License)](LICENSE)
 <!-- #endregion -->
 
 Linked lists have a reputation for being slow, but I believe that their structure is really cool. So I created my own.
