@@ -22,6 +22,11 @@
 	// CMake settings:
 	"cmake.configureOnEdit": true,
 	"cmake.configureOnOpen": true,
+	"cmake.preferredGenerators": [
+		"Ninja",
+		"Unix Makefiles",
+		"${CMAKE_GENERATOR}"
+	],
 	// Terminal settings:
 	"terminal.integrated.cwd": "${workspaceFolder}/build",
 	"files.associations": {
