@@ -30,6 +30,7 @@ $RECYCLE.BIN/
 
 # Build results
 [Bb]uild/*
+[Oo]ut/*
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/

@@ -27,8 +27,6 @@
 		"Unix Makefiles",
 		"${CMAKE_GENERATOR}"
 	],
-	// Terminal settings:
-	"terminal.integrated.cwd": "${workspaceFolder}/build",
 	"files.associations": {
 		"CMakeLists.txt.in": "cmake"
 	},
