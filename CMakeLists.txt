@@ -28,6 +28,13 @@ add_subdirectory(
 	"${CMAKE_BINARY_DIR}/googletest-build"
 )
 
+# Use more warnings
+if(MSVC)
+	add_compile_options(/W4)
+else()
+	add_compile_options(-Wall -Wextra)
+endif()
+
 # Add all the project subdirectories
 add_subdirectory(lklist)
 add_subdirectory(lkqueue)
