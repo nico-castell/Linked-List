@@ -85,14 +85,14 @@ void Stack<T>::Clear()
 template <class T>
 void Stack<T>::Push(const T& data)
 {
-	n = gen_node();   // Create a new node
-	n->data = data;   // Fill the new node's data
-	if (n != h)       // If it's not the Head node
+	n = gen_node();  // Create a new node
+	n->data = data;  // Fill the new node's data
+	if (n != h)      // If it's not the Head node
 		n->prev = t;  //   Point the new node's prev to the Tail
-	if (n != t)       // If it's not the Tail node
+	if (n != t)      // If it's not the Tail node
 		t->next = n;  //   Pint Tail's next to the new node
-	t = n;            // Point tail to the new node
-	size++;           // Update size
+	t = n;           // Point tail to the new node
+	size++;          // Update size
 }
 
 template <class T>
@@ -133,10 +133,10 @@ T Stack<T>::operator[](const int& index)
 
 	if (reverse)
 		for (int i = 0; i < index; i++)  // When reversing start from the Tail and go to the prev node until we've
-			c = c->prev;                 //   done all the operations
+			c = c->prev;                  //   done all the operations
 	else
 		for (int i = -1; i > index; i--)  // When going forward start from the Head and go to the next node until
-			c = c->next;                  //   we've done all the operations
+			c = c->next;                   //   we've done all the operations
 
 	return c->data;
 }

@@ -114,10 +114,10 @@ typename LinkedList<T>::node* LinkedList<T>::find_node(const int& index)
 
 	if (reverse)
 		for (int i = -1; i > index; i--)  // When reversing start from the tail and go to the prev node until we've
-			c = c->prev;                  //   done all the operations
+			c = c->prev;                   //   done all the operations
 	else
 		for (int i = 0; i < index; i++)  // When going forward start from the head and go to the next node until
-			c = c->next;                 //   we've done all the operations
+			c = c->next;                  //   we've done all the operations
 	return c;
 }
 
@@ -134,13 +134,13 @@ void LinkedList<T>::delete_only_node()
 template <class T>
 void LinkedList<T>::Append(const T& data)
 {
-	n = gen_node();   // Create a new node
-	n->data = data;   // Fill the new node's data
-	if (n != h)       // Hande edge case
+	n = gen_node();  // Create a new node
+	n->data = data;  // Fill the new node's data
+	if (n != h)      // Hande edge case
 		n->prev = t;  // Point the new node's prev to the Tail
-	t->next = n;      // Point tail's next to the new node
-	t = n;            // Point tail to the new node
-	size++;           // Update size
+	t->next = n;     // Point tail's next to the new node
+	t = n;           // Point tail to the new node
+	size++;          // Update size
 }
 
 template <class T>
@@ -189,9 +189,9 @@ template <class T>
 void LinkedList<T>::Add(const int& index, const T& data)
 {
 	node* tn = NULL;
-	if (size != 0)              // If it's not the first node
+	if (size != 0)             // If it's not the first node
 		tn = find_node(index);  //   Find this node
-	if (tn == h)                // This node is the head
+	if (tn == h)               // This node is the head
 	{
 		AddHead(data);  // Call correct method
 		return;         // Exit this method
@@ -242,8 +242,9 @@ void LinkedList<T>::Delete(const int& index)
 template <class T>
 void LinkedList<T>::DumpToVector(std::vector<T>& destination)
 {
-	if ((destination.capacity() - destination.size()) < size)  // Make sure the vector has enough capaciry to hold the
-		destination.reserve(destination.size() + size);        //   list without triggering rezising
+	if ((destination.capacity() - destination.size()) <
+		 (unsigned long)size)                            // Make sure the vector has enough capaciry to hold the
+		destination.reserve(destination.size() + size);  //   list without triggering rezising
 	node* c = h;
 	for (int i = 0; i < size; i++)
 	{
@@ -256,8 +257,9 @@ template <class T>
 void LinkedList<T>::DumpToVector(std::vector<T>& destination, const int& from, const int& to)
 {
 	int range = abs(to - from) + 1;
-	if ((destination.capacity() - destination.size()) < range)  // Make sure the vector has enough capacity to hold the
-		destination.reserve(destination.size() + range);        //   list without triggering rezising.
+	if ((destination.capacity() - destination.size()) <
+		 (unsigned long)range)                            // Make sure the vector has enough capacity to hold the
+		destination.reserve(destination.size() + range);  //   list without triggering rezising.
 	node* c = find_node(from);
 	bool reverse = false;  // Default to forward direction
 	if (to < from)         // Or go backwards
