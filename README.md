@@ -1,10 +1,10 @@
 # A linked list
-<!-- #region Shields -->
-[![Build result](https://img.shields.io/github/workflow/status/nico-castell/Linked-List/CMake-Build-Test?label=Build&logo=github&logoColor=white&style=flat-square)](https://github.com/nico-castell/Linked-List/actions/workflows/cmake.yml)
-[![Commits since last release](https://img.shields.io/github/commits-since/nico-castell/Linked-List/latest?label=Commits%20since%20last%20release&logo=Git&logoColor=white&color=informational&style=flat-square)](https://github.com/nico-castell/Linked-List/commits)
-[![Lines of code](https://img.shields.io/tokei/lines/github/nico-castell/Linked-List?label=Lines%20of%20code&logo=C%2B%2B&logoColor=white&color=informational&style=flat-square)](https://github.com/nico-castell/Linked-List)
-[![LICENSE](https://img.shields.io/github/license/nico-castell/Linked-List?label=License&logo=Open%20source%20Initiative&logoColor=white&color=informational&style=flat-square)](LICENSE)
-<!-- #endregion -->
+[![Commits since last release](https://img.shields.io/github/commits-since/nico-castell/Linked-List/latest?label=Commits%20since%20last%20release&color=informational&logo=Git&logoColor=white&style=flat-square)](https://github.com/nico-castell/Linked-List/commits)
+[![Release](https://img.shields.io/github/v/release/nico-castell/Linked-List?label=Release&color=informational&logo=GitHub&logoColor=white&style=flat-square)](https://github.com/nico-castell/Linked-List/releases)
+[![License](https://img.shields.io/github/license/nico-castell/Linked-List?label=License&color=informational&logo=Open%20Source%20Initiative&logoColor=white&style=flat-square)](LICENSE)
+[![Lines of code](https://img.shields.io/tokei/lines/github/nico-castell/Linked-List?label=Lines%20of%20code&color=informational&logo=C%2B%2B&logoColor=white&style=flat-square)](https://github.com/nico-castell/Linked-List)
+[![Build & Test](https://img.shields.io/github/workflow/status/nico-castell/Linked-List/CMake-Build-Test?label=Build&logo=github&logoColor=white&style=flat-square)](https://github.com/nico-castell/Linked-List/actions/workflows/cmake.yml)
+[![CodeQL](https://img.shields.io/github/workflow/status/nico-castell/Linked-List/CodeQL?label=CodeQL&logo=GitHub&logoColor=white&style=flat-square)]()
 
 Linked lists have a reputation for being slow, but I believe that their structure is really cool. So I created my own.
 

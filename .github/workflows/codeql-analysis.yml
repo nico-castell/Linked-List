@@ -1,4 +1,6 @@
 name: "CodeQL"
+# You can add a shield for this workflow to your README using this URL:
+# https://img.shields.io/github/workflow/status/user/repo/CodeQL?
 
 on:
   push:
@@ -6,6 +8,8 @@ on:
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ main ]
+  schedule:
+    - cron: '36 10 * * 5'
 
 jobs:
   analyze:
